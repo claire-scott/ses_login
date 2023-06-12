@@ -25,9 +25,8 @@ if (window.location.origin === "http://localhost:3000") {
 class App extends Component {
   render() {
     return (
-      <div width='1024' height='703' style='border:solid 1px red;'>
+      <div width='1024' height='703'>
         <Root>
-          Test
           <ToastContainer hideProgressBar={true} newestOnTop={true} />
           <Switch>
             <Route path="/signup" component={Signup} />
