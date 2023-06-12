@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Home from "./components/Home";
 import Signup from "./components/account/Signup";
 import Login from "./components/login/Login";
+import Kiosk from "./components/kiosk/Kiosk";
 import ResendActivation from "./components/account/ResendActivation";
 import ActivateAccount from "./components/account/ActivateAccount";
 import ResetPassword from "./components/account/ResetPassword";
@@ -25,11 +26,11 @@ if (window.location.origin === "http://localhost:3000") {
 class App extends Component {
   render() {
     return (
-      <div width='1024' height='703' style='border:solid 1px red;'>
+      <div>
         <Root>
-          Test
           <ToastContainer hideProgressBar={true} newestOnTop={true} />
           <Switch>
+            <Route path="/kiosk" component={Kiosk} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/dashboard" component={requireAuth(Dashboard)} />
