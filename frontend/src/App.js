@@ -26,11 +26,10 @@ if (window.location.origin === "http://localhost:3000") {
 class App extends Component {
   render() {
     return (
-      <div>
-        <Root>
+        <Root id='root'>
           <ToastContainer hideProgressBar={true} newestOnTop={true} />
           <Switch>
-            <Route path="/kiosk" component={Kiosk} />
+            <Route path="/kiosk" component={requireAuth(Kiosk)} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/dashboard" component={requireAuth(Dashboard)} />
@@ -44,7 +43,6 @@ class App extends Component {
             />
           </Switch>
         </Root>
-      </div>
     );
   }
 }

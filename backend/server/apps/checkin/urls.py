@@ -1,6 +1,7 @@
-from django.conf.urls import url, include
+from django.conf.urls import url, include 
+from rest_framework.routers import DefaultRouter
+from apps.checkin.views import UnitViewSet
 
-accounts_urlpatterns = [
-    url(r'^api/v1/', include('djoser.urls')),
-    url(r'^api/v1/', include('djoser.urls.authtoken')),
-]
+router = DefaultRouter()
+router.register("units", UnitViewSet, basename="units")
+notes_urlpatterns = [url("api/v1/", include(router.urls))]

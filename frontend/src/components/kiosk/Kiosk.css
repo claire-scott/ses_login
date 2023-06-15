@@ -3,40 +3,36 @@ div #body {
     height: 100%;
     background-color: #1f3975;
     position: absolute;
-    background-image: url('flood_truck.jfif');
-    background-size: 100%;
+}
+
+div #bs_body {
+    /*padding: 0px;*/
 }
 
 div #kiosk {
-    width: 98%;
-    height: 98%;
+    /*width: 98%;
+    height: 98%;*/
     border: solid 1px red;
-    position: absolute;
+    background-image: url('flood_truck.jfif');
+    background-size: 100%;
+    /*position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
 }
 
 div #events {
-    float: left;
-    position: relative;
-    width: 20%;
-    height: 100%;
     border: solid 1px green;
+    position: relative;
 }
 
 div #users {
-    float: left;
-    width: 20%;
-    height: 100%;
     border: solid 1px purple;
+    position: relative;
 }
 
 div #signin {
-    float: left;
-    width: 60%;
-    height: 100%;
     border: solid 1px blue;
 }
 
@@ -51,4 +47,25 @@ div #event_list {
     width: 95%;
     height: 98%;
     border-radius: 10px;
+}
+
+div #checkout_list {
+    opacity: 25%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);   
+    background-color: black;
+    width: 95%;
+    height: 98%;
+    border-radius: 10px;
+}
+
+div #statusbar {
+    background-color: #1f3975;
+    height: 25px;
+    color: white;
+    font-size: 10pt;
+
 }
