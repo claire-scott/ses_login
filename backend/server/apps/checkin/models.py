@@ -14,6 +14,15 @@ class Unit(models.Model):
     def __str__(self):
         return f"({self.id}) - {self.name}"
 
+class UserUnit(models.Model):
+    unit = models.ForeignKey(Unit, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    created_at = models.DateTimeField(auto_now_add=True)
+    deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"({self.unit}) - {self.user}"
+
 class Member(models.Model):
     first_name = models.CharField(max_length=255,blank=False)
     last_name = models.CharField(max_length=255,blank=False)

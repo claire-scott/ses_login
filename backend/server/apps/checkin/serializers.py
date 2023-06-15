@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.checkin.models import Unit, Member, Device, EventType, Event, EventAttendance
+from apps.checkin.models import Unit, UserUnit, Member, Device, EventType, Event, EventAttendance
 
 class UnitSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,6 +16,22 @@ class UnitSerializer(serializers.ModelSerializer):
             "linking_key",
             "created_at",
             "created_by",
+        )
+
+class UserUnitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserUnit
+        read_only_fields = (
+            "id",
+            "created_at",
+            "created_by",
+        )
+        fields = (
+            "id",
+            "unit",
+            "user",
+            "created_at",
+            "deleted",
         )
 
 class MemberSerializer(serializers.ModelSerializer):
