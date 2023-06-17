@@ -4,10 +4,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 //import { deleteNote, updateNote } from "./NotesActions";
 import "./Kiosk.css";
-import EventList from "./EventList";
+import EventsList from "./EventsList";
 //import { Button } from "react-bootstrap";
 
-import { Container, Navbar, Nav } from "react-bootstrap";
 import { logout } from "../login/LoginActions";
 import CheckoutList from "./CheckoutList";
 
@@ -39,7 +38,7 @@ class Kiosk extends Component {
               <div id='kiosk' class="row flex-fill">
 
                   <div id='events' class='col'>
-                    <EventList />
+                    <EventsList />
                   </div>
 
                   <div id='signin' class='col-6'>
@@ -68,5 +67,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-    
+    logout
   })(withRouter(Kiosk));

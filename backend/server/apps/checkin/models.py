@@ -12,7 +12,7 @@ class Unit(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"({self.id}) - {self.name}"
+        return f"{self.name}"
 
 class UserUnit(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.DO_NOTHING)
@@ -44,10 +44,13 @@ class Device(models.Model):
 
 class EventType(models.Model):
     event_category = models.CharField(max_length=255,blank=False)
-    event_type = models.TextField(max_length=255,blank=True)
+    event_type = models.CharField(max_length=255,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"({self.id}) {self.event_category} - {self.event_type}"
 
 class Event(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.DO_NOTHING)
@@ -58,6 +61,9 @@ class Event(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.active_from.strftime('%Y-%m-%d')} - {self.unit} - {self.description} - {self.event_type}"
 
 class EventAttendance(models.Model):
     event = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
